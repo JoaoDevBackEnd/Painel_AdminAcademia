@@ -1,6 +1,23 @@
 <?php
 include("header.php");
-// Consultar categorias
+
+// Verificar se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id']) && isset($_POST['status_categoria'])) {
+    $id = $_POST['id'];
+    $status_categoria = $_POST['status_categoria'];
+    
+    $novo_status = ($status_categoria == 'Y') ? 'N' : 'Y';
+
+    $sql = "UPDATE categorias SET status = :status_categoria WHERE id = :id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':status_categoria', $novo_status);
+    $stmt->bindParam(':id', $id);
+    
+    if ($stmt->execute()) {
+        header("Location: Categoria.php");
+        exit();
+    }
+}
 $sql = "SELECT * FROM categorias";
 $stmt = $db->query($sql);
 $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -34,8 +51,8 @@ $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td>
                         <form method="post" action="Categoria.php" style="display:inline;">
                             <input type="hidden" name="id" value="<?php echo htmlspecialchars($categoria['id']); ?>">
-                            <button type="submit" name="status" value="<?php echo $categoria['status']; ?>" 
-                                class="btn btn-<?php echo $categoria['status'] == 'Y' ? 'success' : 'danger'; ?>">
+                            <input type="hidden" name="status_categoria" value="<?php echo htmlspecialchars($categoria['status']); ?>">
+                            <button type="submit" class="btn btn-<?php echo $categoria['status'] == 'Y' ? 'success' : 'danger'; ?>">
                                 <?php echo $categoria['status'] == 'Y' ? 'Ativado' : 'Desativado'; ?>
                             </button>
                         </form>

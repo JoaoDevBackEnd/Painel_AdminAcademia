@@ -1,9 +1,9 @@
 <?php 
 include("include/bd.php");
 include("include/cadastro_Categoria.php"); 
-include("include/AtualizarCategoria.php");
 include("include/CadastroLinha.php");
 include("include/AtualizarLinha.php");
+include("include/cadastro_imagem.php");
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ include("include/AtualizarLinha.php");
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">ADMIN</a>
+		<a class="navbar-brand" href="index.php">ADMIN</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -31,7 +31,7 @@ include("include/AtualizarLinha.php");
 		<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" href="index.php">IMAGENS HOME<span class="sr-only">(página atual)</span></a>
+					<a class="nav-link" href="Imagens.php">IMAGENS HOME<span class="sr-only">(página atual)</span></a>
 				</li>
 				<li class="nav-item active">
 					<a class="nav-link" href="Linhas.php">LINHAS<span class="sr-only">(página atual)</span></a>
