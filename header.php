@@ -1,9 +1,5 @@
 <?php 
-include("include/bd.php");
-include("include/cadastro_Categoria.php"); 
-include("include/CadastroLinha.php");
-include("include/AtualizarLinha.php");
-include("include/cadastro_imagem.php");
+require_once("include/bd.php");
 ?>
 
 <!DOCTYPE html>

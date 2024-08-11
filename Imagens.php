@@ -28,12 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id']) && isset($_POST[
         echo "<script>alert('Número máximo de 2 imagens ativadas atingido!');</script>";
     } else {
         $novo_status = ($status_imagem == 'Y') ? 'N' : 'Y';
-
+    
         $sql = "UPDATE imagens SET status = :status_imagem WHERE id = :id";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':status_imagem', $novo_status);
         $stmt->bindParam(':id', $id);
-
+    
         if ($stmt->execute()) {
             header("Location: Imagens.php");
             exit();
