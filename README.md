@@ -35,3 +35,14 @@ CREATE TABLE produtos (
     FOREIGN KEY (id_categoria) REFERENCES categorias(id),
     FOREIGN KEY (id_linha) REFERENCES linhas(id) 
 );
+CREATE TABLE representantes (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    ddd CHAR(2) NOT NULL,
+    telefone CHAR(9) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    estado VARCHAR(2) NOT NULL,
+    cidade VARCHAR(255) NOT NULL,
+    status CHAR(1) NOT NULL DEFAULT 'Y',
+    PRIMARY KEY (id)
+);

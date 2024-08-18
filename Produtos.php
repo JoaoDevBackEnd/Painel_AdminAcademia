@@ -1,6 +1,5 @@
 <?php
 include("header.php");
-
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     deletarProduto($db);
 }
@@ -40,7 +39,6 @@ function deletarProduto($db) {
     }
 }
 ?>
-
 <div class="container">
     <label>PÁGINA PRODUTOS</label>
     <div class="col-lg-12" style="text-align: right;">
@@ -70,7 +68,7 @@ function deletarProduto($db) {
                     <td><?php echo htmlspecialchars($produto['nome_linha']); ?></td>
                     <td><?php echo htmlspecialchars($produto['descricao']); ?></td>
                     <td>
-                        <a href="CadastrarProduto.php?id=<?php echo $produto['id']; ?>" class="btn btn-warning">Editar</a>
+                        <a href="CadastrarProduto.php?acao=editar&id=<?php echo $produto['id']; ?>" class="btn btn-warning">Editar</a>
                         <a href="Produtos.php?id=<?php echo $produto['id']; ?>" class="btn btn-danger">Deletar</a>
                     </td>
                 </tr>
